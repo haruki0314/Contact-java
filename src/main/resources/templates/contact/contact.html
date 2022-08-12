@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	contactForm
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>お問合せフォーム</title>
+  </head>
+  <body>
+    <form th:action="@{/post-contact}" method="post">
+      <header class="l-header">
+        <div class="l-header_box"></div>
+        <h1>お問合せフォーム</h1>
+      </header>
+      <main class="p-main">
+        <div class="p-main_outer">
+          <div class="p-main_box_outer_box">
+            名前
+            <input />
+	    内容
+            <input />
+            <button type="submit"></button>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <div class="l-footer"></div>
+      </footer>
+    </form>
+  </body>
 </html>
