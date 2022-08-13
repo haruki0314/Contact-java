@@ -1,0 +1,19 @@
+.l-header {
+  background-color: #73c89c;
+  padding: 20px;
+}
+@media screen and (max-width: 960px) {
+  .l-header__outer {
+    display: flex;
+  }
+  .l-header__outer__left-box {
+    font-size: 20px;
+  }
+  .l-header__outer__right-box {
+    display: flex;
+    padding: 20px;
+  }
+  .l-header__outer__right-box__link {
+    padding: 10px;
+  }
+}/*# sourceMappingURL=l-header.css.map */
