@@ -5,7 +5,7 @@
     <title>お問合せフォーム</title>
   </head>
   <body>
-    <form th:action="@{/post-contact}" method="post">
+    <form th:action="@{/post-contact}" method="post" th:objefct="${form}">
       <header class="l-header">
         <div class="l-header_box"></div>
         <h1>お問合せフォーム</h1>
@@ -13,10 +13,37 @@
       <main class="p-main">
         <div class="p-main_outer">
           <div class="p-main_box_outer_box">
+            名字
+            <label
+              th:if="${#fields.hasErrors('firstName')}"
+              th:error="*{firstName}"
+            ></label>
+            <input th:field="*{firstName}" />
             名前
-            <input />
+            <label
+              th:if="${#fields.hasErrors('lastName')}"
+              th:error="*{lastName}"
+            ></label>
+            <input th:field="*{lastName}" />
+            メールアドレス
+            <label
+              th:if="${#fields.hasErrors('mail')}"
+              th:error="*{mail}"
+            ></label>
+            <input th:field="*{mail}" />
+            電話番号
+            <label
+              th:if="${#fields.hasErrors('phoneNumber')}"
+              th:error="*{phoneNumber}"
+            ></label>
+            <input th:field="*{phoneNumber}" />
             内容
-            <input />
+            <label
+              th:if="${#fields.hasErrors('info')}"
+              th:error="*{info}"
+            ></label>
+            <input th:field="*{info}" />
+
             <button type="submit"></button>
           </div>
         </div>

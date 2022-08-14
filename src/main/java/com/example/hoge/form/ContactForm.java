@@ -15,7 +15,7 @@ public class ContactForm {
 	@NotEmpty(message = "名字を入力してください")
     @Size(max = 100, message = "名字は100桁以内で入力してください")
 	public String firstName;
-	/**
+	/** 
 	 * 名前
 	 */
 	@NotEmpty(message = "名前を入力してください")
