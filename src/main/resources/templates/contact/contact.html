@@ -5,45 +5,53 @@
     <title>お問合せフォーム</title>
   </head>
   <body>
-    <form th:action="@{/post-contact}" method="post" th:objefct="${form}">
+    <form th:action="@{/post-contact}" method="post" th:object="${contactForm}">
       <header class="l-header">
         <div class="l-header_box"></div>
         <h1>お問合せフォーム</h1>
       </header>
-      <main class="p-main">
+      <main class="l-main p-main">
         <div class="p-main_outer">
           <div class="p-main_box_outer_box">
             名字
-            <!-- <label
+            <label
               th:if="${#fields.hasErrors('firstName')}"
               th:error="*{firstName}"
-            ></label> -->
+            ></label>
             <input th:field="*{firstName}" />
-            <!-- 名前
+	</div>
+	<div class="p-main_box_outer_box">
+            名前
             <label
               th:if="${#fields.hasErrors('lastName')}"
               th:error="*{lastName}"
             ></label>
             <input th:field="*{lastName}" />
+	</div>
+	<div class="p-main_box_outer_box">
             メールアドレス
             <label
               th:if="${#fields.hasErrors('mail')}"
               th:error="*{mail}"
             ></label>
             <input th:field="*{mail}" />
-            電話番号
+	</div>
+      <div class="p-main_box_outer_box">
+	電話番号
             <label
               th:if="${#fields.hasErrors('phoneNumber')}"
               th:error="*{phoneNumber}"
             ></label>
             <input th:field="*{phoneNumber}" />
+	</div>
+
             内容
             <label
               th:if="${#fields.hasErrors('info')}"
               th:error="*{info}"
             ></label>
-            <input th:field="*{info}" /> -->
-
+            <input th:field="*{info}" />
+	</div>
             <button type="submit"></button>
           </div>
         </div>

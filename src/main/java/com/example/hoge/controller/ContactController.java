@@ -17,8 +17,6 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @Slf4j
 public class ContactController {
-	ContactForm form;
-	
 	@GetMapping("/top")
 	public String top() {
 		return "contact/Top";
@@ -27,12 +25,11 @@ public class ContactController {
 	@GetMapping("/contact")
 	public String contact(
 			@Validated
-			@ModelAttribute
+			@ModelAttribute 
 			ContactForm form,
 			Model model
 			) {
 		log.info("contact");
-//		model.addAttribute("form",form);
 		return "contact/Contact";
 	}
 	
@@ -46,7 +43,6 @@ public class ContactController {
 			if(result.hasErrors()) {
 				return "contact/Contact";
 			}
-			model.addAttribute("form",form);
 		return "contact/Confirm";
 	}
 	
