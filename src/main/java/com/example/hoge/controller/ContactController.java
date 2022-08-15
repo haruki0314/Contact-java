@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.example.hoge.form.ContactForm;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @RequiredArgsConstructor
 @Controller
+@Slf4j
 public class ContactController {
 	ContactForm form;
 	
@@ -23,7 +25,14 @@ public class ContactController {
 	}
 	
 	@GetMapping("/contact")
-	public String contact() {
+	public String contact(
+			@Validated
+			@ModelAttribute
+			ContactForm form,
+			Model model
+			) {
+		log.info("contact");
+//		model.addAttribute("form",form);
 		return "contact/Contact";
 	}
 	

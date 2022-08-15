@@ -14,12 +14,12 @@
         <div class="p-main_outer">
           <div class="p-main_box_outer_box">
             名字
-            <label
+            <!-- <label
               th:if="${#fields.hasErrors('firstName')}"
               th:error="*{firstName}"
-            ></label>
+            ></label> -->
             <input th:field="*{firstName}" />
-            名前
+            <!-- 名前
             <label
               th:if="${#fields.hasErrors('lastName')}"
               th:error="*{lastName}"
@@ -42,7 +42,7 @@
               th:if="${#fields.hasErrors('info')}"
               th:error="*{info}"
             ></label>
-            <input th:field="*{info}" />
+            <input th:field="*{info}" /> -->
 
             <button type="submit"></button>
           </div>
