@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.hoge.form.ContactForm;
+import com.example.hoge.service.ContactService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,11 +18,23 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @Slf4j
 public class ContactController {
+	private final ContactService contactService;
+	
+	/**
+	 * topPageのクラス
+	 * @return
+	 */
 	@GetMapping("/top")
 	public String top() {
 		return "contact/Top";
 	}
 	
+	/**
+	 * お問合せページに飛ぶクラス
+	 * @param form
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/contact")
 	public String contact(
 			@Validated
@@ -29,10 +42,17 @@ public class ContactController {
 			ContactForm form,
 			Model model
 			) {
-		log.info("contact");
+		log.info("お問合せページ");
 		return "contact/Contact";
 	}
 	
+	/**
+	 * 確認画面に飛ぶクラス
+	 * @param form
+	 * @param model
+	 * @param result
+	 * @return
+	 */
 	@PostMapping("/post-contact")
 	public String confirm(
 			@Validated
@@ -43,15 +63,25 @@ public class ContactController {
 			if(result.hasErrors()) {
 				return "contact/Contact";
 			}
+			contactService.confirm(form);
+			log.info("確認画面");
 		return "contact/Confirm";
 	}
 	
+	/**
+	 * 確認ボタンを押下した時の処理
+	 * @return
+	 */
 	@PostMapping("/post-form")
 	public String postconfirm(
 			) {
 		return "redirect:/contact/success";
 	}
 	
+	/**
+	 * 成功した時の処理
+	 * @return
+	 */
 	@GetMapping("/contact/success")
 	public String formSuccess() {
 		return "contact/success";
