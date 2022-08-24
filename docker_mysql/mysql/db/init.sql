@@ -1,4 +1,4 @@
-CREATE DATABASE t_customer;
+CREATE DATABASE sample_db;
 use sample_db;
 
 CREATE TABLE users (
